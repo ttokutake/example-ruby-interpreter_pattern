@@ -11,11 +11,11 @@ class CommandListNode < Node
 
   def parse(context)
     loop do
-      raise 'Missing "end"' if context.current_token.nil?
+      raise 'Missing "end"' unless context.more_tokens?
 
       if context.current_token == 'end'
         context.skip_token('end')
-        break
+        return
       end
 
       command_node = CommandNode.new

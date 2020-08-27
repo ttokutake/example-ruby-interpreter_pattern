@@ -7,13 +7,17 @@ class StringTokenizer
     @index = 0
   end
 
-  def more_tokens?
-    !@tokens[@index].nil?
-  end
-
   def next_token
+    return nil unless more_tokens?
+
     token = @tokens[@index]
     @index += 1
     token
+  end
+
+  private
+
+  def more_tokens?
+    @index < @tokens.length
   end
 end

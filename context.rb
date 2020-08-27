@@ -13,7 +13,11 @@ class Context
   end
 
   def next_token
-    @current_token = @tokenizer.more_tokens? ? @tokenizer.next_token : nil
+    @current_token = @tokenizer.next_token
+  end
+
+  def more_tokens?
+    !@current_token.nil?
   end
 
   def skip_token(token)
