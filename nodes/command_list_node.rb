@@ -28,4 +28,8 @@ class CommandListNode < Node
   def to_s
     "[#{@command_nodes.join(' ')}]"
   end
+
+  def execute(executor)
+    @command_nodes.each { |command_node| command_node.execute(executor) }
+  end
 end

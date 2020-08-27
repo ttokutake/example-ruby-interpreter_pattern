@@ -19,4 +19,8 @@ class PrimitiveCommandNode < Node
   def to_s
     @name
   end
+
+  def execute(executor)
+    executor.execute(@name)
+  end
 end

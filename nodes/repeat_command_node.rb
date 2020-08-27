@@ -21,4 +21,8 @@ class RepeatCommandNode < Node
   def to_s
     "[repeat #{@number} #{@command_list_node}]"
   end
+
+  def execute(executor)
+    @number.times { @command_list_node.execute(executor) }
+  end
 end

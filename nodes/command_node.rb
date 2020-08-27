@@ -24,4 +24,8 @@ class CommandNode < Node
   def to_s
     @node.to_s
   end
+
+  def execute(executor)
+    @node.execute(executor)
+  end
 end

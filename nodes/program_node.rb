@@ -18,4 +18,8 @@ class ProgramNode < Node
   def to_s
     "[program #{@command_list_node}]"
   end
+
+  def execute(executor)
+    @command_list_node.execute(executor)
+  end
 end
