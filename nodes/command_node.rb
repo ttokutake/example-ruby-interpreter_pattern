@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 require_relative './node'
-require_relative './repeat_command_node'
 require_relative './primitive_command_node'
+require_relative './repeat_command_node'
 
 # command parser
 class CommandNode < Node

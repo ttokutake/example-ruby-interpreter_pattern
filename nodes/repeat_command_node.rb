@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative './node'
 require_relative './command_list_node'
+require_relative './node'
 
 # repeat command parser
 class RepeatCommandNode < Node

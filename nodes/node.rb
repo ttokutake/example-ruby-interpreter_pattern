@@ -2,7 +2,7 @@
 
 # abstract parser
 class Node
-  def parse
-    raise 'Abstract method "parse" must be implemented'
+  def parse(_context)
+    raise NoMethodError, 'Abstract method "parse" must be implemented'
   end
 end

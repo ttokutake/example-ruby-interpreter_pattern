@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
-require_relative './string_tokenizer'
+require_relative './errors/parse_error'
+require_relative './libs/string_tokenizer'
 
-# program context
+# parser context
 class Context
   attr_reader :current_token
 
@@ -21,13 +22,13 @@ class Context
   end
 
   def skip_token(token)
-    raise "#{token} is expected, but #{@current_token} is found." unless token == @current_token
+    raise ParseError, "#{token} is expected, but #{@current_token} is found." unless token == @current_token
 
     next_token
   end
 
   def current_number
-    raise "#{@current_token} is not a number." unless @current_token =~ /\d+/
+    raise ParseError, "#{@current_token} is not a number." unless @current_token =~ /\d+/
 
     @current_token.to_i
   end

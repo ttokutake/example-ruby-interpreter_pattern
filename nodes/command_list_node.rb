@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-require_relative './node'
+require_relative '../errors/parse_error'
 require_relative './command_node'
+require_relative './node'
 
 # command list parser
 class CommandListNode < Node
@@ -11,7 +12,7 @@ class CommandListNode < Node
 
   def parse(context)
     loop do
-      raise 'Missing "end"' unless context.more_tokens?
+      raise ParseError, 'Missing "end"' unless context.more_tokens?
 
       if context.current_token == 'end'
         context.skip_token('end')
